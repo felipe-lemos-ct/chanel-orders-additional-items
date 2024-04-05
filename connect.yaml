@@ -1,17 +1,25 @@
 deployAs:
-  - name: manage-additional-items
-    applicationType: merchant-center-custom-application
+  - name: additional-itens-manager
+    applicationType: mc-app
+    endpoint: /
     configuration:
       standardConfiguration:
-        - key: CUSTOM_APPLICATION_ID
-          description: The Custom Application ID is provided when you add a Custom Application in the Merchant Center
+        - key: CUSTOM_VIEW_ID
+          description: The Custom VIEW ID
           required: true
-        - key: CLOUD_IDENTIFIER
-          description: The identifier of the cloud Region that the Custom Application uses to connect to Composable Commerce. The values map to the actual Merchant Center API URL for that Region
-          default: "gcp-eu"
-        - key: ENTRY_POINT_URI_PATH
-          description: The Application entry point URI path identified during registration of Custom Application
+        - key: APPLICATION_ID
+          description: The Custom Application ID
           required: true
         - key: APPLICATION_URL
-          description: The Application URL
+          description: custom app production app URL
+          required: true
+        - key: CLOUD_IDENTIFIER
+          description: one of the following gcp-us, gcp-eu, aws-us, aws-eu
+          required: true
+        - key: INITIAL_PROJECT_KEY
+          description: development project key
           required: false
+        - key: ENABLE_NEW_JSX_TRANSFORM
+          description: enable new jsx transform
+          required: true
+          default: "true"
